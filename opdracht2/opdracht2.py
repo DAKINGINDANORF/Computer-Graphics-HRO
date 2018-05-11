@@ -1,3 +1,4 @@
+# Opdracht 2 Computer Graphics Tommie Terhoeve TI2B 0926280
 class Color_converter:
 
     # Converts RGB to CMY
@@ -60,8 +61,6 @@ class Color_converter:
         temporary_G = H
         temporary_B = H - 0.333
         templist = [temporary_R, temporary_G, temporary_B]
-        print(templist[1])
-        print(templist[2])
         finallist = []
         # Check if values are between 0 and 1
         for i in range(len(templist)):
@@ -83,8 +82,8 @@ class Color_converter:
 
     # Calculates R,G,B value of 2 surfaces with different transparencies ontop of eachother
     def transparency(self, R1, G1, B1, alpha1, R2, G2, B2):
-        rgb1list = [R1,G1,B1]
-        rgb2list = [R2,G2,B2]
+        rgb1list = [R1, G1, B1]
+        rgb2list = [R2, G2, B2]
         rgbfinalist = []
         for i in range(len(rgb1list)):
             rgbfinalist.append((alpha1 * rgb1list[i]) + (1-alpha1) * rgb2list[i])
@@ -92,4 +91,8 @@ class Color_converter:
 
 
 colorConverter = Color_converter()
-print(colorConverter.transparency(85, 113, 135, 0.9, 43, 169, 225))
+print(colorConverter.RGBtoCMY(0.3, 0.2, 0.4))
+print(colorConverter.CMYtoRGB(0.2, 0.6, 0.9))
+print(colorConverter.RGBtoHSL(0.22, 0.35, 0.8))
+print(colorConverter.HSLtoRGB(80, 0.65, 0.98))
+print(colorConverter.transparency(0.67, 0.43, 0.78, 0.9, 0.65, 0.52, 0.32))
