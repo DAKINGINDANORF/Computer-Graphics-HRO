@@ -73,7 +73,7 @@ class Grid:
                 self.bresenham(x1, y1, x2, y2, True)
     '''
     The algorithm works as follows:
-    1. Calculate deltaX and delta Y
+    1. Calculate deltaX and deltaY
     2. If deltaY is bigger than deltaX, switch them around
     3. Check if there is a negative slope, if so the increment needs to be negative
     4. Calculate D (difference) Which is the distance of the line to the center of the pixel.
