@@ -1,8 +1,10 @@
+# Computer graphics opdracht 3 Tommie Terhoeve 0926280
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
 GRID_SIZE = 10
+
 
 class Grid:
     def __init__(self, sizeX, sizeY):
@@ -56,21 +58,61 @@ class Grid:
 
     # Draw a line using Bresenham's algorithm
     def rasterline(self, x1,  y1, x2, y2):
-        # Switch (x1,y1) and (x2,y2) if x1 > x2
-        if x1 > x2:
-            tempx, tempy = x1, y1
-            x1, y1 = x2, y2
-            x2, y2 = tempx, tempy
-        # Calculate delta x and y
+        # Define dx,dy
         dx = x2 - x1
         dy = y2 - y1
-        m = dy/dx
-        if m > 0 and m < 1:
-            for x in range(x1, x2):
-                y = round(m*(x-x1)) + y1
+        if dy < dx:
+            if x1 > x2:
+                self.bresenham(x2, y2, x1, y1, False)
+            else:
+                self.bresenham(x1, y1, x2, y2, False)
+        else:
+            if y1 > y2:
+                self.bresenham(x2, y2, x1, y1, True)
+            else:
+                self.bresenham(x1, y1, x2, y2, True)
+    '''
+    The algorithm works as follows:
+    1. Calculate deltaX and delta Y
+    2. If deltaY is bigger than deltaX, switch them around
+    3. Check if there is a negative slope, if so the increment needs to be negative
+    4. Calculate D (difference) Which is the distance of the line to the center of the pixel.
+    5. If switched calculate the next X coordinate for every Y coordinate
+    6. If not switched calculate the next Y coordinate for every X coordinate
+    '''
+
+    def bresenham(self, x1, y1, x2, y2, isSwitched):
+        # Define dx,dy
+        dx = x2 - x1
+        dy = y2 - y1
+        if isSwitched:
+            temp = dx
+            dx = dy
+            dy = temp
+        yi = 1
+        # If there is a negative slope
+        if dy < 0:
+            yi = - 1
+            dy = -dy
+        D = 2*dy - dx
+        if isSwitched:
+            x = x1
+            for y in range(y1, y2 + 1):
                 self.addPoint(x, y)
-
-
+                # If D is positive, increment x
+                if D > 0:
+                    x = x + yi
+                    D = D - 2*dx
+                D = D + 2*dy
+        else:
+            y = y1
+            for x in range(x1, x2 + 1):
+                    self.addPoint(x, y)
+                    # If D is positive, increment y
+                    if D > 0:
+                        y = y + yi
+                        D = D - 2*dx
+                    D = D + 2*dy
 
     def end(self, key, x, y):
         exit()
