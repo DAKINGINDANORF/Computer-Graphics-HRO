@@ -1,4 +1,4 @@
-# Computer graphics opdracht 3 Tommie Terhoeve 0926280
+# Computer graphics opdracht 3 Tommie Terhoeve 0926280 TI2B
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *

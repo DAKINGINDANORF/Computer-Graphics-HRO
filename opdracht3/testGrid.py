@@ -1,3 +1,4 @@
+# Computer graphics opdracht 3 Tommie Terhoeve 0926280 TI2B
 from grid import *
 
 g = Grid(100, 100)
