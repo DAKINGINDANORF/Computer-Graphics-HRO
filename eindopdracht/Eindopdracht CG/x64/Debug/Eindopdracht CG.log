@@ -1,3 +1,5 @@
 ﻿  Eindopdracht CG.cpp
-c:\users\tommie\google drive\computer graphics\computer-graphics-hro\eindopdracht\eindopdracht cg\eindopdracht cg.cpp(36): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+c:\users\tommie\google drive\computer graphics\computer-graphics-hro\eindopdracht\eindopdracht cg\eindopdracht cg.cpp(15): warning C4838: conversion from 'double' to 'GLfloat' requires a narrowing conversion
+c:\users\tommie\google drive\computer graphics\computer-graphics-hro\eindopdracht\eindopdracht cg\eindopdracht cg.cpp(15): warning C4305: 'initializing': truncation from 'double' to 'GLfloat'
+c:\users\tommie\google drive\computer graphics\computer-graphics-hro\eindopdracht\eindopdracht cg\eindopdracht cg.cpp(51): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   Eindopdracht CG.vcxproj -> C:\Users\Tommie\Google Drive\Computer Graphics\Computer-Graphics-HRO\eindopdracht\x64\Debug\Eindopdracht CG.exe
